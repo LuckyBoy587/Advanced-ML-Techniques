@@ -1,0 +1,3 @@
+Glucose,BloodPressure,SkinThickness,Insulin,BMI,DiabetesPedigreeFunction,Age,FamilyHistory,HbA1c,Outcome,GlucoseCategory,HealthText
+148,72,35,0,33.6,0.627,50,0,11,1,High Glucose Level,Age group: Middle-aged | BMI status: Obese | Glucose category: High Glucose Level
+85,66,29,0,26.6,0.351,31,0,5,0,Low Glucose Risk,Age group: Middle-aged | BMI status: Overweight | Glucose category: Low Glucose Risk
