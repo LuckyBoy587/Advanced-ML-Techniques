@@ -11,13 +11,13 @@ from sklearn.metrics import silhouette_score, calinski_harabasz_score, davies_bo
 warnings.filterwarnings("ignore")
 
 def main():
-    filename = input().strip()
+    # filename = input().strip()
     
     # 1. Dataset Preview
-    df = pd.read_csv(os.path.join(sys.path[0], filename))
+    # df = pd.read_csv(os.path.join(sys.path[0], filename))
+    df = pd.read_csv("Sample.csv")
     print(df.head())
-    print(f"\n[{len(df)} rows x {len(df.columns)} columns]\n")
-    
+
     # 2. Dataset Info
     df.info()
     print()
@@ -25,13 +25,16 @@ def main():
     # Preprocessing: StandardScaler
     scaler = StandardScaler()
     X_scaled = scaler.fit_transform(df)
-    
+    print("X_scaled:", X_scaled)
     # K-Distance Computation (Extraction but not plotted)
     neighbors = NearestNeighbors(n_neighbors=5)
     neighbors_fit = neighbors.fit(X_scaled)
     distances, indices = neighbors_fit.kneighbors(X_scaled)
+
+    print("Distances:", distances)
+    print("Indices:", indices, "\n")
     distances = np.sort(distances[:, 1], axis=0) # 2nd-nearest neighbor distance
-    
+
     # 3. Hyperparameter Evaluation Results
     eps_val = 2
     for min_samples in [3, 4, 5]:
